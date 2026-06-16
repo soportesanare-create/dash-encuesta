@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Resultados - Sanare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js for beautiful charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header dashboard-header animate-fade-in">
+            <img src="logo-sanare.png" alt="Logo Sanare" class="logo">
+            <h1>Panel de Resultados de Encuestas</h1>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid animate-slide-up" style="animation-delay: 0.1s;">
+            <div class="stat-card">
+                <h3>Total Encuestas</h3>
+                <p id="totalSurveys">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Calificación Promedio</h3>
+                <p id="averageScore">0.0<span class="max-score">/10</span></p>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-container animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="chart-card">
+                <h3>Promedio por Pregunta</h3>
+                <canvas id="questionsChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="table-container animate-slide-up" style="animation-delay: 0.3s;">
+            <h3>Historial de Evaluaciones</h3>
+            <div class="table-responsive">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Médico</th>
+                            <th title="Experiencia y Confort">P1</th>
+                            <th title="Seguridad y Doble Verificación">P2</th>
+                            <th title="Comunicación">P3</th>
+                            <th title="Gestión de Riesgos">P4</th>
+                            <th title="Socio Estratégico">P5</th>
+                            <th>Calificación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Compat SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>
